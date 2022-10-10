@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            background-color: #F0F5F9;
+            padding: 1rem;
+        }
+
+        div {
+            width: 30%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img {
+            width: 100%;
+
+        }
+
+        #sec {
+            position: absolute;
+            background-color: black;
+            width: 2px;
+            height: 35%;
+            top: 15%;
+            transform-origin: bottom;
+
+        }
+
+        #hr {
+            position: absolute;
+            background-color: black;
+            width: 5px;
+            height: 20%;
+            top: 30%;
+            transform-origin: bottom;
+        }
+
+        #min {
+            position: absolute;
+            background-color: rgb(202, 29, 29);
+            width: 3px;
+            height: 25%;
+            top: 25%;
+
+            transform-origin: bottom;
+        }
+
+        @media screen and (max-width:700px) {
+            div {
+                width: 100%;
+            }
+
+            body {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="./clock.png" alt="clock-img">
+        <span id="sec"></span>
+        <span id="hr"></span>
+        <span id="min"></span>
+    </div>
+    <script>
+        setInterval(() => {
+            const date = new Date();
+            const hr = date.getHours();
+            const min = date.getMinutes();
+            const sec = date.getSeconds();
+            hrt = 30 * hr + min / 2;
+            mint = 6 * min;
+            sect = 6 * sec;
+            document.getElementById("hr").style.transform = "rotate(" + hrt + "deg)";
+            document.getElementById("min").style.transform = "rotate(" + mint + "deg)";
+            document.getElementById("sec").style.transform = "rotate(" + sect + "deg)";
+        }
+            , 1000);
+    </script>
+</body>
+
+</html>
